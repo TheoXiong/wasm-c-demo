@@ -1,0 +1,33 @@
+{
+  "name": "wasm-c-demo",
+  "version": "1.0.0",
+  "description": "A simple C WASM demo",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "emcc -s \"EXTRA_EXPORTED_RUNTIME_METHODS=[\"ccall\", \"_malloc\", \"_free\", \"lengthBytesUTF8\", \"stringToUTF8\", \"UTF8ToString\", \"setValue\", \"getValue\"]\" -s ALLOW_MEMORY_GROWTH=1 src/demo.c -o build/demo.js",
+    "dist": "node dist/index.js",
+    "html": "node html/run.js"
+  },
+  "author": "TheoXiong",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "open": "^6.4.0"
+  },
+  "keywords": [
+    "WebAssembly",
+    "Emscripten",
+    "C",
+    "Demo",
+    "Simple",
+    "Pointer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheoXiong/wasm-c-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheoXiong/wasm-c-demo/issues"
+  },
+  "homepage": "https://github.com/TheoXiong/wasm-c-demo#readme"
+}
