@@ -99,6 +99,9 @@
         let b = pointerToString(Module, ptrOut.pointer + 4, 1)
         let c = Module.getValue(ptrOut.pointer + 6, 'i16')
 
+        ptrIn.free()
+        ptrOut.free()
+
         console.log('[ Call c funtion ][ testStruct ]:', a, b, c)
       }
     </script>

@@ -3,7 +3,7 @@
 English | [简体中文](./README.zh-CN.md)
 
 [wasm-c-demo](https://github.com/TheoXiong/wasm-c-demo) is a simple C WASM demo,
-Mainly demonstrates that Js calls C functions, emulates various types pointer that match C pointer through the emscripten API, and passes data through the pointer.
+Mainly demonstrates that Js calls C functions, emulates various types pointer that match C pointer through the emscripten API, and pass data through the pointer.
 
 ## Usage
 
