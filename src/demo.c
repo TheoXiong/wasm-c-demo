@@ -6,7 +6,7 @@ int EMSCRIPTEN_KEEPALIVE square (int a)
   return a * a;
 }
 
-int* EMSCRIPTEN_KEEPALIVE squareArray (int* arr, int length)
+int * EMSCRIPTEN_KEEPALIVE squareArray (int *arr, int length)
 {
   for (int i = 0; i < length; i++) {
     arr[i] = arr[i] * arr[i];
@@ -14,14 +14,14 @@ int* EMSCRIPTEN_KEEPALIVE squareArray (int* arr, int length)
   return arr;
 }
 
-void EMSCRIPTEN_KEEPALIVE getChars (char* str, int length)
+void EMSCRIPTEN_KEEPALIVE getChars (char *str, int length)
 {
   for (int i = 0; i < length; i++) {
     *(str + i) = 70 + i;
   }
 }
 
-char* EMSCRIPTEN_KEEPALIVE reverse (char* str, int length)
+char * EMSCRIPTEN_KEEPALIVE reverse (char *str, int length)
 {
   char tmp = '\0';
   for (int i = 0; i < length / 2; i++) {
@@ -32,7 +32,7 @@ char* EMSCRIPTEN_KEEPALIVE reverse (char* str, int length)
   return str;
 }
 
-void EMSCRIPTEN_KEEPALIVE getCharsInArray (char** p, int row, int column)
+void EMSCRIPTEN_KEEPALIVE getCharsInArray (char **p, int row, int column)
 {
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < column - 1; j++) {
@@ -41,7 +41,7 @@ void EMSCRIPTEN_KEEPALIVE getCharsInArray (char** p, int row, int column)
   }
 }
 
-void EMSCRIPTEN_KEEPALIVE getNumbersInArray (unsigned char** p, int row, int column)
+void EMSCRIPTEN_KEEPALIVE getNumbersInArray (unsigned char **p, int row, int column)
 {
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < column; j++) {
@@ -57,13 +57,9 @@ typedef struct
   short c;
 } Simple;
 
-Simple EMSCRIPTEN_KEEPALIVE testStruct (Simple s, int a, char b, short c)
+void EMSCRIPTEN_KEEPALIVE testStruct (Simple *input, Simple *output, int a, char b, short c)
 {
-  Simple r;
-  r.a = s.a + a;
-  r.b = b;
-  r.c = s.c - c;
-
-  printf("c.......%d, %c, %d\n", s.a, s.b, s.c);
-  return r;
+  output->a = input->a + a;
+  output->b = b;
+  output->c = input->c - c;
 }

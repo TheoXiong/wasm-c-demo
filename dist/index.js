@@ -79,13 +79,19 @@ const getNumbersInArray = () => {
 }
 
 const testStruct = () => {
-  // let len = 8
-  // let ptrObj = bytePointer(Module, len)
+  let len = 8
+  let ptrIn = bytePointer(Module, len)
+  let ptrOut = bytePointer(Module, len)
 
-  // Module.setValue(ptrObj.pointer, 666, 'i32')
-  // Module.setValue(ptrObj.pointer + 4, 67, 'i8')
-  // Module.setValue(ptrObj.pointer + 6, 123, 'i16')
+  Module.setValue(ptrIn.pointer, 666, 'i32')
+  Module.setValue(ptrIn.pointer + 4, 68, 'i8')
+  Module.setValue(ptrIn.pointer + 6, 123, 'i16')
 
-  // console.log('1111....', ptrObj.pointer, new Uint8Array(Module.HEAPU8.buffer, ptrObj.pointer, len))
-  // let result = Module._testStruct(ptrObj.pointer, 2, 'C', 500)
+  Module._testStruct(ptrIn.pointer, ptrOut.pointer, 23, 70, 323)
+
+  let a = Module.getValue(ptrOut.pointer, 'i32')
+  let b = pointerToString(Module, ptrOut.pointer + 4, 1)
+  let c = Module.getValue(ptrOut.pointer + 6, 'i16')
+
+  console.log('[ Call c funtion ][ testStruct ]:', a, b, c)
 }

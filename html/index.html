@@ -85,6 +85,21 @@
       }
 
       const testStruct = () => {
+        let len = 8
+        let ptrIn = bytePointer(Module, len)
+        let ptrOut = bytePointer(Module, len)
+
+        Module.setValue(ptrIn.pointer, 666, 'i32')
+        Module.setValue(ptrIn.pointer + 4, 68, 'i8')
+        Module.setValue(ptrIn.pointer + 6, 123, 'i16')
+
+        Module._testStruct(ptrIn.pointer, ptrOut.pointer, 23, 70, 323)
+
+        let a = Module.getValue(ptrOut.pointer, 'i32')
+        let b = pointerToString(Module, ptrOut.pointer + 4, 1)
+        let c = Module.getValue(ptrOut.pointer + 6, 'i16')
+
+        console.log('[ Call c funtion ][ testStruct ]:', a, b, c)
       }
     </script>
   </body>
